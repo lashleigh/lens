@@ -8,9 +8,67 @@
 
 
 
-*/body {
-  background: #323232;
-  color: white;
+*/.message_container {
+  background: #1d1d1d;
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  top: 122px;
+}
+.message {
+  margin: 0 auto;
+  width: 1120px;
+  display: none;
+  height: 100px;
+  color: #ffffff;
+}
+.message h3 {
+  width: 25em;
+  height: 2em;
+  margin: 0 auto;
+  text-align: center;
+  padding: 37px 8px 17px;
+}
+.message a {
+  color: #000000;
+  background: #fff155;
+  padding: 5px 8px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+.message a:hover {
+  color: #000000;
+  background: #ffffff;
+}
+#message {
+  padding: 0.5em;
+  margin: 1em 20px;
+  width: 33%;
+  border: solid 2px #4b2812;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+#errors {
+  padding: 0.5em;
+  margin: 1em 20px;
+  width: 33%;
+  color: #aa3333;
+  border: solid 2px #883333;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body { height: 100%; }
+body {
+  background: #ffffff;
+  color: #4b2812;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 22px;
 }
 #username_nav {
   margin: 2em 0px 0px 15px;

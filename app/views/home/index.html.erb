@@ -1,9 +1,9 @@
 <%= form_tag( :action => 'show') do %>
   <%= label_tag 'users' %>
-  <%= text_field_tag 'users' %>
+  <%= text_field_tag 'users', @userstring %>
 
   <%= label_tag 'tags' %>
-  <%= text_field_tag 'tags' %>
+  <%= text_field_tag 'tags', @tagstring %>
   
   <%= submit_tag "Search"  %>
 <% end %>

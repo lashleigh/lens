@@ -1,8 +1,16 @@
 
 class HomeController < ApplicationController
+
+  def help
+    Helper.instance
+  end
+
+  class Helper
+    include Singleton
+    include ActionView::Helpers::TextHelper
+  end
+
   def index
-    @photos = (flickr.photos.search(:user_id => "49191687@N05", :tags => "nomad", :per_page => 10, :extras => "date_taken, owner_name, geo, tags" ).to_a +
-               flickr.photos.search(:user_id => "23276058@N04", :tags => "nomad", :per_page => 10, :extras => "date_taken, owner_name, geo, tags" ).to_a).sort! {|a,b| a.datetaken <=> b.datetaken }
   end
 
   def show
@@ -13,13 +21,18 @@ class HomeController < ApplicationController
     @users.each do |u|
       begin
         temp_id = flickr.people.findByUsername(:username => u).nsid
+        @nsids << temp_id
       rescue FlickRaw::FailedResponse
         @no_such_users << u
-      else
-        @nsids << temp_id
       end
     end
     @users -= @no_such_users 
+    unless @no_such_users.empty?
+      flash.now[:error] = "#{help.pluralize(@no_such_users.length, "name")} not found: " + @no_such_users.join(", ")
+      @userstring = @users.join(", ")
+      @tagstring = params[:tags]
+      render :action => :index
+    end
     
     @photos = []
     @nsids.each do |u|
