@@ -1,0 +1,28 @@
+<script type="text/javascript">
+  $(window).load(function() {
+    $("#photo_container").masonry({ 
+      singleMode: true, 
+    });
+  });
+</script>
+
+<ul id="username_nav">
+  <% @users.each do |user| %>
+    <li><%= link_to user, "#" %> </li>
+  <% end %>
+</ul>
+
+<ul id="username_nav">
+  <% @no_such_users.each do |user| %>
+    <li><%= link_to user, "#" %> </li>
+  <% end %>
+</ul>
+
+<div id="photo_container">
+  <% @photos.each do |p| %>
+    <div class="photo flickr_<%= p.ownername %>">
+      <%= link_to(image_tag(FlickRaw.url_m(p), :title => p.title, :border => 0, :alt => p.title), FlickRaw.url_m(p), :class => "fancy", :rel => "group")  %>
+    </div>
+  <% end %>
+</div>
+
