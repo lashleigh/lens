@@ -1,10 +1,14 @@
+<div id="form_container">
 <%= form_tag( :action => 'show') do %>
   <%= label_tag 'users' %>
-  <%= text_field_tag 'users', @userstring %>
+  <%= text_field_tag 'users', @userstring, :size => 45 %>
 
   <%= label_tag 'tags' %>
-  <%= text_field_tag 'tags', @tagstring %>
-  
+  <%= text_field_tag 'tags', @tagstring, :size => 45%>
+
+  <%= label_tag 'num' %>
+  <%= select_tag 'num', options_for_select([["3"], ["10"], ["20"], ["50"]]) %> 
+
   <%= submit_tag "Search"  %>
 <% end %>
-
+</div>

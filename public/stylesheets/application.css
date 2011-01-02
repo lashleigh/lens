@@ -70,6 +70,7 @@ body {
   font-weight: normal;
   line-height: 22px;
 }
+#form_container { margin: 20px; }
 #username_nav {
   margin: 2em 0px 0px 15px;
   padding: 0;

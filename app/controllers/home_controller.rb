@@ -36,7 +36,7 @@ class HomeController < ApplicationController
     
     @photos = []
     @nsids.each do |u|
-      @photos += flickr.photos.search(:user_id => u, :tags => params[:tags], :per_page => 3, :extras => "date_taken, owner_name, geo, tags" ).to_a
+      @photos += flickr.photos.search(:user_id => u, :tags => params[:tags], :per_page => params[:num], :extras => "date_taken, owner_name, geo, tags" ).to_a
     end
     @photos.sort! {|a, b| a.datetaken <=> b.datetaken }
   end
