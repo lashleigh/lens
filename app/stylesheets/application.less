@@ -7,12 +7,30 @@ h1 {
 }
 
 #username_nav {
-
+  margin: 2em 0px 0px 15px;
+  padding: 0;
+  li {
+    float: left;
+    list-style: none;
+  }
+  li a {
+    -webkit-box-shadow: rgba(0, 0, 0, 0.296875) 0px 1px 2px;
+    background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(rgba(255, 255, 255, 0.398438)), to(rgba(255, 255, 255, 0)));
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    display: block;
+    margin-right: 5px;
+    padding: 0.5em 1em;
+  }
 }
 
 #photo_container {
   margin-left: 15px;
+  position: relative;
   overflow: hidden;
+  clear: both;
 }
 
 .photo {
