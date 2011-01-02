@@ -19,6 +19,7 @@ class HomeController < ApplicationController
         @nsids << temp_id
       end
     end
+    @users -= @no_such_users 
     
     @photos = []
     @nsids.each do |u|
