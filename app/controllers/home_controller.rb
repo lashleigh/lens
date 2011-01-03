@@ -44,6 +44,7 @@ class HomeController < ApplicationController
                                       :extras => "date_taken, owner_name, geo, tags" ).to_a
     end
     @photos.sort! {|a, b| a.datetaken <=> b.datetaken }
+    @photo_hash = @photos.group_by { |p| p.datetaken[0..9] }
   end
 
 end

@@ -91,7 +91,7 @@ div.ui-datepicker { font-size: 11px; }
   margin-right: 5px;
   padding: 0.5em 1em;
 }
-#photo_container {
+.photo_container {
   margin-left: 15px;
   position: relative;
   overflow: hidden;
