@@ -9,6 +9,19 @@
   <%= label_tag 'num' %>
   <%= select_tag 'num', options_for_select([["3"], ["10"], ["20"], ["50"]]) %> 
 
+  <%= label_tag 'date' %>
+  <%= select_datetime() %>
+
   <%= submit_tag "Search"  %>
 <% end %>
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+</script>
+
+<%= label_tag 'date' %>
+<%= text_field_tag 'datepicker', Date.today, :size => 30%>
+
 </div>
