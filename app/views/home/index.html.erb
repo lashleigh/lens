@@ -1,7 +1,6 @@
 <script>
   $(function() {
-    $( "#startDate" ).datepicker({ dateFormat: 'yy-mm-dd' });
-    $( "#endDate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    $( ".calendar" ).datepicker({ dateFormat: 'yy-mm-dd', changeYear: true, changeMonth: true });
   });
 </script>
 
@@ -21,10 +20,10 @@
     </p>
     <p>
     <%= label_tag 'start_date' %>
-    <%= text_field_tag 'startDate', Date.today, :size => 30%>
+    <%= text_field_tag 'startDate', @start_date, :class => 'calendar' %>
     
     <%= label_tag 'end_date' %>
-    <%= text_field_tag 'endDate', Date.today, :size => 30%>
+    <%= text_field_tag 'endDate', @end_date, :class => 'calendar'  %>
     </p>
     <p>
     <%= submit_tag "Search"  %>

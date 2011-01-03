@@ -71,6 +71,7 @@ body {
   line-height: 22px;
 }
 #form_container { margin: 20px; }
+div.ui-datepicker { font-size: 11px; }
 #username_nav {
   margin: 2em 0px 0px 15px;
   padding: 0;
