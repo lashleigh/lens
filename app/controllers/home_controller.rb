@@ -34,9 +34,12 @@ class HomeController < ApplicationController
       render :action => :index
     end
     
+    start_date = Date.strptime(params[:startDate]).to_time.to_i
+    end_date = Date.strptime(params[:endDate]).to_time.to_i
     @photos = []
     @nsids.each do |u|
-      @photos += flickr.photos.search(:user_id => u, :tags => params[:tags], :per_page => params[:num], :extras => "date_taken, owner_name, geo, tags" ).to_a
+      @photos += flickr.photos.search(:user_id => u, :tags => params[:tags], :per_page => params[:num], :min_taken_date => start_date, :max_taken_date => end_date, 
+                                      :extras => "date_taken, owner_name, geo, tags" ).to_a
     end
     @photos.sort! {|a, b| a.datetaken <=> b.datetaken }
   end
