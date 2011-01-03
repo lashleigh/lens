@@ -21,12 +21,14 @@
   <% @photo_hash.each do |date, photos| %>
     <tr>
       <td class="photo_date"> <%= date %></td>
-      <td class="photo_container">
+      <td class="photo_column"> 
+      <div class="photo_container">
         <% photos.each do |p| %>
           <div class="photo flickr_<%= p.ownername %>">
             <%= link_to(image_tag(FlickRaw.url_m(p), :title => p.title, :border => 0, :alt => p.title), FlickRaw.url_m(p), :class => "fancy", :rel => "group")  %>
           </div>
         <% end %>
+      </div>
       </td>
     </tr>
   <% end %>
