@@ -1,6 +1,21 @@
 <script>
   $(function() {
-    $( ".calendar" ).datepicker({ dateFormat: 'yy-mm-dd', changeYear: true, changeMonth: true });
+    var dates = $( "#startDate, #endDate" ).datepicker({
+      dateFormat: 'yy-mm-dd',
+      defaultDate: "+1w",
+      changeMonth: true,
+      changeYear: true,
+      numberOfMonths: 3,
+      onSelect: function( selectedDate ) {
+        var option = this.id == "startDate" ? "minDate" : "maxDate",
+          instance = $( this ).data( "datepicker" );
+          date = $.datepicker.parseDate(
+            instance.settings.dateFormat ||
+            $.datepicker._defaults.dateFormat,
+            selectedDate, instance.settings );
+        dates.not( this ).datepicker( "option", option, date );
+      }
+    });
   });
 </script>
 
@@ -19,10 +34,10 @@
     <%= select_tag 'num', options_for_select([["3"], ["10"], ["20"], ["50"]]) %> 
     </p>
     <p>
-    <%= label_tag 'start_date' %>
+    <%= label_tag 'From' %>
     <%= text_field_tag 'startDate', @start_date, :class => 'calendar' %>
     
-    <%= label_tag 'end_date' %>
+    <%= label_tag 'to' %>
     <%= text_field_tag 'endDate', @end_date, :class => 'calendar'  %>
     </p>
     <p>

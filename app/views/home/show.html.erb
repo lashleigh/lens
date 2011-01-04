@@ -1,7 +1,6 @@
 <script type="text/javascript">
   $(window).load(function() {
     $(".photo_container").masonry({ 
-      singleMode: true, 
     });
   });
 </script>
@@ -25,7 +24,7 @@
       <div class="photo_container">
         <% photos.each do |p| %>
           <div class="photo flickr_<%= p.ownername %>">
-            <%= link_to(image_tag(FlickRaw.url_m(p), :title => p.title, :border => 0, :alt => p.title), FlickRaw.url_m(p), :class => "fancy", :rel => "group")  %>
+            <%= link_to(image_tag(FlickRaw.url_m(p), :title => p.title, :border => 0, :alt => p.title), FlickRaw.url_photopage(p), :class => "fancy", :rel => "group")  %>
           </div>
         <% end %>
       </div>
